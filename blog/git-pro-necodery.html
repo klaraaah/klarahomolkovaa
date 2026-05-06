@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="index,follow"/>
+<title>Git pro necodery: záchrana dat při práci s AI | Klára Homolková</title>
+<meta name="description" content="Git není jen pro programátory. Pokud stavíte web s AI a nemáte verzování, jste jeden špatný prompt od ztráty hodin práce. Praktický úvod do Gitu pro netechnické lidi."/>
+<link rel="canonical" href="https://klarahomolkova.cz/blog/git-pro-necodery.html"/>
+<meta property="og:title" content="Git pro necodery: záchrana dat při práci s AI"/>
+<meta property="og:type" content="article"/><meta property="og:locale" content="cs_CZ"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23131313'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23FF007F'%3EK%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#131313;--surface:#1C1B1B;--surface-glass:rgba(28,27,27,.6);--border:rgba(255,0,127,.18);--border-subtle:rgba(255,255,255,.07);--accent:#FF007F;--accent2:#FFB1C4;--text:#f0f0f0;--muted:#888;--radius:6px;--font:'Space Grotesk',sans-serif;--tr:.22s cubic-bezier(.4,0,.2,1);--glow:0 0 24px rgba(255,0,127,.35);--glow-sm:0 0 12px rgba(255,0,127,.2)}
+html{scroll-behavior:smooth}.skip-link{position:absolute;left:-9999px;top:0;background:var(--accent);color:#fff;padding:10px 16px;z-index:9999;font-weight:600;text-decoration:none}.skip-link:focus{left:0}
+body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,0,127,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,0,127,.04) 1px,transparent 1px);background-size:48px 48px}
+.container{width:90%;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.label{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+a{color:var(--accent2);text-decoration:none;transition:var(--tr)}a:hover{color:var(--accent)}strong{color:var(--text);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--radius);font-family:var(--font);font-size:.88rem;font-weight:600;cursor:pointer;border:none;text-decoration:none;letter-spacing:.04em;transition:var(--tr)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:var(--glow-sm)}.btn-primary:hover{box-shadow:var(--glow);transform:translateY(-2px);filter:brightness(1.1)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:var(--tr)}nav.scrolled{background:rgba(19,19,19,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-subtle);padding:13px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}.logo{font-size:1.1rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:.02em}.logo span{color:var(--accent);text-shadow:var(--glow-sm)}
+.nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:.8rem;font-weight:500;color:var(--muted);text-decoration:none;transition:var(--tr);letter-spacing:.06em;text-transform:uppercase}.nav-links a:hover,.nav-links a.active{color:var(--accent2)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}.hamburger span{display:block;width:20px;height:1.5px;background:var(--text);border-radius:2px}
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(19,19,19,.97);backdrop-filter:blur(24px);z-index:99;flex-direction:column;padding:110px 40px 40px;gap:4px}.mob-menu.open{display:flex}.mob-menu a{font-size:1.5rem;font-weight:700;padding:13px 0;border-bottom:1px solid var(--border-subtle);text-decoration:none;color:var(--text)}.mob-menu a:hover{color:var(--accent2)}
+.article-hero{padding:120px 0 48px;position:relative;z-index:1}.article-meta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:24px;font-size:.8rem;color:var(--muted)}.article-cat{background:rgba(255,0,127,.1);color:var(--accent);padding:3px 10px;border-radius:4px;font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.article-hero h1{font-size:clamp(1.9rem,3.8vw,3rem);font-weight:700;letter-spacing:-.01em;line-height:1.15;margin-bottom:16px}
+.article-perex{font-size:1.05rem;color:var(--muted);line-height:1.75;max-width:680px;border-left:3px solid var(--accent);padding-left:18px}
+.article-wrap{display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start;padding:40px 0 80px;position:relative;z-index:1}
+.article-content h2{font-size:1.35rem;font-weight:700;margin:36px 0 12px;color:var(--text)}.article-content h3{font-size:1.05rem;font-weight:700;margin:22px 0 8px;color:var(--accent2)}
+.article-content p{font-size:.95rem;color:var(--muted);line-height:1.8;margin-bottom:14px}.article-content ul,.article-content ol{padding-left:20px;margin-bottom:14px}.article-content li{font-size:.95rem;color:var(--muted);line-height:1.8;margin-bottom:5px}.article-content strong{color:var(--text);font-weight:600}
+.callout{padding:16px 20px;border-radius:var(--radius);margin:18px 0;font-size:.9rem;line-height:1.65}.callout-info{background:rgba(96,165,250,.06);border-left:3px solid #60a5fa;color:var(--muted)}.callout-good{background:rgba(34,197,94,.06);border-left:3px solid #22c55e;color:var(--muted)}.callout-warn{background:rgba(245,158,11,.06);border-left:3px solid #f59e0b;color:var(--muted)}.callout strong{color:var(--text)}
+.cmd-box{background:rgba(0,0,0,.4);border:1px solid var(--border-subtle);border-radius:var(--radius);padding:14px 18px;font-family:monospace;font-size:.88rem;color:#7be09a;margin:10px 0;line-height:1.7}
+.cmd-comment{color:var(--muted);font-style:italic}
+.article-cta{background:rgba(255,0,127,.06);border:1px solid var(--border);border-radius:10px;padding:28px 32px;margin:36px 0 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.article-cta h3{font-size:1rem;font-weight:700;margin-bottom:5px;color:var(--text)}.article-cta p{font-size:.84rem;color:var(--muted);margin-bottom:0}
+.author-box{display:flex;gap:14px;padding:20px;border-radius:var(--radius);border:1px solid var(--border-subtle);background:var(--surface-glass);margin-top:36px;align-items:center}
+.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#ff4da3);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;font-weight:700;flex-shrink:0;box-shadow:var(--glow-sm)}
+.sidebar{position:sticky;top:88px}.sidebar-card{padding:22px;border-radius:var(--radius);border:1px solid var(--border-subtle);background:var(--surface-glass);margin-bottom:14px}.sidebar-card h3{font-size:.9rem;font-weight:700;margin-bottom:10px}.sidebar-card p{font-size:.82rem;color:var(--muted);margin-bottom:12px;line-height:1.6}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:6px}.toc-list a{font-size:.82rem;color:var(--muted);text-decoration:none;display:flex;align-items:baseline;gap:6px;transition:var(--tr)}.toc-list a:hover{color:var(--accent2)}.toc-list a::before{content:'→';color:var(--accent);font-size:.72rem;flex-shrink:0}
+footer{padding:36px 0;border-top:1px solid var(--border-subtle);position:relative;z-index:1}.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}.foot-copy{font-size:.78rem;color:var(--muted);margin-top:5px;line-height:1.7}.foot-right{display:flex;gap:22px;align-items:center;flex-wrap:wrap}.foot-right a{font-size:.78rem;color:var(--muted);text-decoration:none;transition:var(--tr);text-transform:uppercase;letter-spacing:.06em}.foot-right a:hover{color:var(--accent2)}
+@media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}.article-wrap{grid-template-columns:1fr}.sidebar{position:static}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Přeskočit na obsah</a>
+<nav id="nav"><div class="container nav-inner"><a href="/" class="logo">Klára<span>Homolková</span></a><ul class="nav-links"><li><a href="/#services">Služby</a></li><li><a href="/portfolio.html">Portfolio</a></li><li><a href="/o-mne.html">O mně</a></li><li><a href="/blog/" class="active">Blog</a></li><li><a href="/kontakt.html">Kontakt</a></li></ul><a href="/audit-webu-zdarma.html" class="btn btn-primary" style="padding:10px 18px;font-size:.8rem">🎁 Audit webu zdarma</a><button class="hamburger" id="ham" aria-label="Otevřít menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<div class="mob-menu" id="mob" role="dialog" aria-hidden="true"><a href="/#services" onclick="closeMob()">Služby</a><a href="/portfolio.html" onclick="closeMob()">Portfolio</a><a href="/o-mne.html" onclick="closeMob()">O mně</a><a href="/blog/" onclick="closeMob()">Blog</a><a href="/kontakt.html" onclick="closeMob()">Kontakt</a><a href="/audit-webu-zdarma.html" class="btn btn-primary" style="text-align:center;margin-top:16px" onclick="closeMob()">🎁 Audit webu zdarma</a></div>
+
+<div class="article-hero" id="main">
+  <div class="container">
+    <div class="article-meta"><span class="article-cat">🛠️ Nástroje</span><span>5. 5. 2026</span><span>⏱ 5 min čtení</span><span>Klára Homolková</span></div>
+    <h1>Git pro necodery: záchrana dat<br/>při práci s AI</h1>
+    <p class="article-perex">Bez verzování je každá změna jednosměrná. Jeden špatný prompt a hodiny práce jsou pryč. Git je zálohovací systém, který tohle řeší — a je jednodušší, než vypadá.</p>
+  </div>
+</div>
+
+<div class="container article-wrap">
+  <article class="article-content">
+
+    <p>Zkuste si představit tuto situaci: pracujete na webu přes AI, máte krásný výsledek. Dáte modelu jeden příkaz navíc. Výsledek je katastrofa — a původní verze je pryč. Přesně proto existuje Git.</p>
+
+    <h2 id="proc">Proč potřebujete verzování (i když nejste vývojář)</h2>
+
+    <p>Představte si složku s dokumenty po měsíci práce:</p>
+    <ul>
+      <li><code>web_final.html</code></li>
+      <li><code>web_final_v2.html</code></li>
+      <li><code>web_final_opraveno.html</code></li>
+      <li><code>web_final_TOTO_JE_SPRAVNE.html</code></li>
+    </ul>
+
+    <p>Tohle dělá každý. A tohle Git řeší. Místo kopírování souborů Git sleduje <strong>historii změn</strong> — co se změnilo, kdy a proč. A kdykoli se chcete vrátit, stačí jeden příkaz.</p>
+
+    <div class="callout callout-warn">
+      <strong>Konkrétně u vibe codingu:</strong> AI může jedním promptem přepsat funkční web na nefunkční. Bez Gitu jste v problémech. S Gitem se vrátíte na poslední fungující stav za 10 sekund.
+    </div>
+
+    <h2 id="git-vs-github">Git vs. GitHub: jaký je rozdíl?</h2>
+
+    <p>Tyhle dva termíny lidi pletou — jsou to ale různé věci:</p>
+    <ul>
+      <li><strong>Git</strong> = nástroj na vašem počítači, který sleduje historii změn souborů</li>
+      <li><strong>GitHub</strong> = cloudová služba, kde ukládáte Git repozitáře online (záloha + sdílení)</li>
+    </ul>
+
+    <p>Git je jako systém verzí v dokumentu. GitHub je jako Dropbox, ale pro Git repozitáře.</p>
+
+    <h2 id="tri-pojmy">Tři pojmy, které stačí rozumět</h2>
+
+    <h3>1. Commit — uložení snímku</h3>
+    <p>Commit je jako fotografický snímek vašeho projektu v danou chvíli. Udělali jste funkční změnu? Udělejte commit. Každý commit má popis — co jste změnili a proč.</p>
+    <div class="cmd-box">
+      git add .<br/>
+      git commit -m "feat: přidat kontaktní formulář"<br/>
+      <span class="cmd-comment"># Uloží snímek aktuálního stavu projektu</span>
+    </div>
+
+    <h3>2. Push — nahrání do cloudu</h3>
+    <p>Push odešle vaše lokální commity na GitHub. Tím máte zálohu v cloudu — a pokud pracujete na více počítačích, synchronizaci.</p>
+    <div class="cmd-box">
+      git push origin master<br/>
+      <span class="cmd-comment"># Nahraje změny na GitHub, větev master</span>
+    </div>
+
+    <h3>3. Revert/checkout — vrácení zpět</h3>
+    <p>Pokazilo se něco? Chcete se vrátit na předchozí fungující stav? Tohle je chvíle, kdy Git zachrání hodiny práce:</p>
+    <div class="cmd-box">
+      git log --oneline -5<br/>
+      <span class="cmd-comment"># Zobrazí posledních 5 commitů s jejich ID</span><br/><br/>
+      git checkout [ID_COMMITU] -- index.html<br/>
+      <span class="cmd-comment"># Vrátí konkrétní soubor na stav v daném commitu</span>
+    </div>
+
+    <h2 id="jak-commitovat">Jak commitovat při vibe codingu</h2>
+
+    <p>Jednoduchá zásada: <strong>commitujte po každé fungující změně.</strong> Nečekejte na „hotový" výsledek.</p>
+    <ul>
+      <li>Přidali jste novou sekci webu → commit</li>
+      <li>Opravili jste formulář → commit</li>
+      <li>Změnili design → commit</li>
+      <li>Chystáte se na velkou změnu → commit (abyste měli záchranný bod)</li>
+    </ul>
+
+    <h3>Naming convention pro commit zprávy</h3>
+    <p>Commit zpráva se píše formátem <code>typ: popis</code>:</p>
+    <div class="cmd-box">
+      feat: přidat sekci ceník<br/>
+      fix: opravit broken odkaz v patičce<br/>
+      style: změnit barvu tlačítka na růžovou<br/>
+      content: aktualizovat texty v hero sekci<br/>
+      <span class="cmd-comment"># Typy: feat, fix, style, content, docs, chore</span>
+    </div>
+
+    <h2 id="vetvi">Větve: kdy je potřeba a kdy je to overkill</h2>
+
+    <p>Větev (branch) je paralelní verze projektu — experimentujete na ní beze strachu, že pokazíte hlavní web.</p>
+    <p><strong>Pro jednoduché projekty</strong> (jednostránkový web, malý projekt): větvení není potřeba. Pracujte na větvi <code>master</code> a commitujte pravidelně.</p>
+    <p><strong>Větev má smysl</strong> když: chystáte velký redesign, testujete novou funkci, nebo pracuje více lidí najednou.</p>
+
+    <div class="callout callout-good">
+      <strong>Praktické pravidlo:</strong> Pro solo projekty stačí jedna větev (master) a pravidelné commity. Větve přidejte, až budete potřebovat — ne dopředu.
+    </div>
+
+    <div class="article-cta">
+      <div style="flex:1"><h3>Chcete web s Gitem od začátku?</h3><p>Každý web, který tvořím, je od startu v Gitu — máte historii změn a zálohu na GitHubu. Konzultace 30 minut zdarma.</p></div>
+      <a href="/kontakt.html" class="btn btn-primary" style="flex-shrink:0">Chci konzultaci →</a>
+    </div>
+    <div class="author-box"><div class="author-avatar">K</div><div><div class="author-name">Klára Homolková</div><p style="font-size:.8rem;color:var(--muted);margin-bottom:0">Webařka, AI konzultantka a marketingová poradkyně z Třebíče.</p></div></div>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-card"><h3>Obsah článku</h3><ul class="toc-list"><li><a href="#proc">Proč verzování</a></li><li><a href="#git-vs-github">Git vs. GitHub</a></li><li><a href="#tri-pojmy">3 základní pojmy</a></li><li><a href="#jak-commitovat">Jak commitovat</a></li><li><a href="#vetvi">Větve: kdy a proč</a></li></ul></div>
+    <div class="sidebar-card" style="background:rgba(255,0,127,.05);border-color:var(--border)"><h3>🎁 Bezplatný audit</h3><p>Pošlete mi váš web — do 48 h dostanete konkrétní zpětnou vazbu zdarma.</p><a href="/audit-webu-zdarma.html" class="btn btn-primary" style="width:100%;justify-content:center;font-size:.82rem;padding:10px">Chci audit zdarma →</a></div>
+    <div class="sidebar-card"><h3>📚 Související</h3><ul class="toc-list"><li><a href="/blog/vibe-coding-web-bez-kodu.html">Vibe coding: web bez kódu</a></li><li><a href="/blog/claude-md-jak-naucit-ai-vaseho-byznysu.html">CLAUDE.md průvodce</a></li></ul></div>
+  </aside>
+</div>
+
+<footer><div class="container foot"><div><a href="/" class="logo">Klára<span style="color:var(--accent)">Homolková</span></a><p class="foot-copy">Klára Homolková · IČO: 17960967 · Třebíč · © 2026</p></div><div class="foot-right"><a href="/#services">Služby</a><a href="/portfolio.html">Portfolio</a><a href="/blog/">Blog</a><a href="/kontakt.html">Kontakt</a></div></div></footer>
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+const ham=document.getElementById('ham');const mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.setAttribute('aria-expanded',o);mob.setAttribute('aria-hidden',!o)});
+function closeMob(){mob.classList.remove('open');ham.setAttribute('aria-expanded','false');mob.setAttribute('aria-hidden','true')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMob()});
+</script>
+</body>
+</html>

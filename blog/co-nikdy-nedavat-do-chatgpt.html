@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="index,follow"/>
+<title>Co nikdy nedávat do ChatGPT ani Claude: GDPR a bezpečnost dat | Klára Homolková</title>
+<meta name="description" content="Hesla, osobní údaje, zdravotní data, finanční záznamy — co patří do AI a co ne. Praktický průvodce bezpečností dat a rozdíl mezi Free, Pro a Enterprise plánem."/>
+<link rel="canonical" href="https://klarahomolkova.cz/blog/co-nikdy-nedavat-do-chatgpt.html"/>
+<meta property="og:title" content="Co nikdy nedávat do ChatGPT ani Claude: GDPR a bezpečnost dat"/>
+<meta property="og:type" content="article"/><meta property="og:locale" content="cs_CZ"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23131313'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23FF007F'%3EK%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#131313;--surface:#1C1B1B;--surface-glass:rgba(28,27,27,.6);--border:rgba(255,0,127,.18);--border-subtle:rgba(255,255,255,.07);--accent:#FF007F;--accent2:#FFB1C4;--text:#f0f0f0;--muted:#888;--radius:6px;--font:'Space Grotesk',sans-serif;--tr:.22s cubic-bezier(.4,0,.2,1);--glow:0 0 24px rgba(255,0,127,.35);--glow-sm:0 0 12px rgba(255,0,127,.2)}
+html{scroll-behavior:smooth}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--accent);color:#fff;padding:10px 16px;z-index:9999;font-weight:600;text-decoration:none}.skip-link:focus{left:0}
+body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,0,127,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,0,127,.04) 1px,transparent 1px);background-size:48px 48px}
+.container{width:90%;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.label{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+a{color:var(--accent2);text-decoration:none;transition:var(--tr)}a:hover{color:var(--accent)}
+strong{color:var(--text);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--radius);font-family:var(--font);font-size:.88rem;font-weight:600;cursor:pointer;border:none;text-decoration:none;letter-spacing:.04em;transition:var(--tr)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:var(--glow-sm)}.btn-primary:hover{box-shadow:var(--glow);transform:translateY(-2px);filter:brightness(1.1)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:var(--tr)}
+nav.scrolled{background:rgba(19,19,19,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-subtle);padding:13px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.1rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:.02em}.logo span{color:var(--accent);text-shadow:var(--glow-sm)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.8rem;font-weight:500;color:var(--muted);text-decoration:none;transition:var(--tr);letter-spacing:.06em;text-transform:uppercase}
+.nav-links a:hover,.nav-links a.active{color:var(--accent2)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:20px;height:1.5px;background:var(--text);border-radius:2px}
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(19,19,19,.97);backdrop-filter:blur(24px);z-index:99;flex-direction:column;padding:110px 40px 40px;gap:4px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:1.5rem;font-weight:700;padding:13px 0;border-bottom:1px solid var(--border-subtle);text-decoration:none;color:var(--text)}
+.mob-menu a:hover{color:var(--accent2)}
+.article-hero{padding:120px 0 48px;position:relative;z-index:1}
+.article-meta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:24px;font-size:.8rem;color:var(--muted)}
+.article-cat{background:rgba(255,0,127,.1);color:var(--accent);padding:3px 10px;border-radius:4px;font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.article-hero h1{font-size:clamp(1.9rem,3.8vw,3rem);font-weight:700;letter-spacing:-.01em;line-height:1.15;margin-bottom:16px}
+.article-perex{font-size:1.05rem;color:var(--muted);line-height:1.75;max-width:680px;border-left:3px solid var(--accent);padding-left:18px}
+.article-wrap{display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start;padding:40px 0 80px;position:relative;z-index:1}
+.article-content h2{font-size:1.35rem;font-weight:700;margin:36px 0 12px;color:var(--text)}
+.article-content h3{font-size:1.05rem;font-weight:700;margin:22px 0 8px;color:var(--accent2)}
+.article-content p{font-size:.95rem;color:var(--muted);line-height:1.8;margin-bottom:14px}
+.article-content ul,.article-content ol{padding-left:20px;margin-bottom:14px}
+.article-content li{font-size:.95rem;color:var(--muted);line-height:1.8;margin-bottom:5px}
+.article-content strong{color:var(--text);font-weight:600}
+.callout{padding:16px 20px;border-radius:var(--radius);margin:18px 0;font-size:.9rem;line-height:1.65}
+.callout-warn{background:rgba(245,158,11,.06);border-left:3px solid #f59e0b;color:var(--muted)}
+.callout-good{background:rgba(34,197,94,.06);border-left:3px solid #22c55e;color:var(--muted)}
+.callout-bad{background:rgba(239,68,68,.06);border-left:3px solid #ef4444;color:var(--muted)}
+.callout-info{background:rgba(96,165,250,.06);border-left:3px solid #60a5fa;color:var(--muted)}
+.callout strong{color:var(--text)}
+.checklist{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.check-row{display:flex;gap:12px;padding:12px 16px;border-radius:var(--radius);border:1px solid var(--border-subtle);background:var(--surface-glass);align-items:flex-start}
+.check-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.check-label{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.check-desc{font-size:.82rem;color:var(--muted);line-height:1.55}
+.check-row.never{border-color:rgba(239,68,68,.25)}
+.check-row.careful{border-color:rgba(245,158,11,.25)}
+.check-row.ok{border-color:rgba(34,197,94,.25)}
+.plan-table{width:100%;border-collapse:collapse;font-size:.88rem;margin:16px 0}
+.plan-table th{text-align:left;padding:9px 14px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border-subtle)}
+.plan-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--muted)}
+.plan-table td strong{color:var(--text)}
+.plan-table tr:last-child td{border-bottom:none}
+.article-cta{background:rgba(255,0,127,.06);border:1px solid var(--border);border-radius:10px;padding:28px 32px;margin:36px 0 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.article-cta h3{font-size:1rem;font-weight:700;margin-bottom:5px;color:var(--text)}
+.article-cta p{font-size:.84rem;color:var(--muted);margin-bottom:0}
+.author-box{display:flex;gap:14px;padding:20px;border-radius:var(--radius);border:1px solid var(--border-subtle);background:var(--surface-glass);margin-top:36px;align-items:center}
+.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#ff4da3);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;font-weight:700;flex-shrink:0;box-shadow:var(--glow-sm)}
+.sidebar{position:sticky;top:88px}
+.sidebar-card{padding:22px;border-radius:var(--radius);border:1px solid var(--border-subtle);background:var(--surface-glass);margin-bottom:14px}
+.sidebar-card h3{font-size:.9rem;font-weight:700;margin-bottom:10px}
+.sidebar-card p{font-size:.82rem;color:var(--muted);margin-bottom:12px;line-height:1.6}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.toc-list a{font-size:.82rem;color:var(--muted);text-decoration:none;display:flex;align-items:baseline;gap:6px;transition:var(--tr)}
+.toc-list a:hover{color:var(--accent2)}
+.toc-list a::before{content:'→';color:var(--accent);font-size:.72rem;flex-shrink:0}
+footer{padding:36px 0;border-top:1px solid var(--border-subtle);position:relative;z-index:1}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+.foot-copy{font-size:.78rem;color:var(--muted);margin-top:5px;line-height:1.7}
+.foot-right{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.foot-right a{font-size:.78rem;color:var(--muted);text-decoration:none;transition:var(--tr);text-transform:uppercase;letter-spacing:.06em}
+.foot-right a:hover{color:var(--accent2)}
+@media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}.article-wrap{grid-template-columns:1fr}.sidebar{position:static}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Přeskočit na obsah</a>
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="/" class="logo">Klára<span>Homolková</span></a>
+    <ul class="nav-links"><li><a href="/#services">Služby</a></li><li><a href="/portfolio.html">Portfolio</a></li><li><a href="/o-mne.html">O mně</a></li><li><a href="/blog/" class="active">Blog</a></li><li><a href="/kontakt.html">Kontakt</a></li></ul>
+    <a href="/audit-webu-zdarma.html" class="btn btn-primary" style="padding:10px 18px;font-size:.8rem">🎁 Audit webu zdarma</a>
+    <button class="hamburger" id="ham" aria-label="Otevřít menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-menu" id="mob" role="dialog" aria-hidden="true">
+  <a href="/#services" onclick="closeMob()">Služby</a><a href="/portfolio.html" onclick="closeMob()">Portfolio</a><a href="/o-mne.html" onclick="closeMob()">O mně</a><a href="/blog/" onclick="closeMob()">Blog</a><a href="/kontakt.html" onclick="closeMob()">Kontakt</a>
+  <a href="/audit-webu-zdarma.html" class="btn btn-primary" style="text-align:center;margin-top:16px" onclick="closeMob()">🎁 Audit webu zdarma</a>
+</div>
+
+<div class="article-hero" id="main">
+  <div class="container">
+    <div class="article-meta"><span class="article-cat">🔒 AI & bezpečnost</span><span>5. 5. 2026</span><span>⏱ 5 min čtení</span><span>Klára Homolková</span></div>
+    <h1>Co nikdy nedávat do ChatGPT<br/>ani Claude: GDPR a bezpečnost dat</h1>
+    <p class="article-perex">Polovina lidí, kteří AI používají, ho používají nebezpečně — ne ze zlého úmyslu, ale protože nevědí, kde je hranice. Tahle hranice je jednodušší, než si myslíte.</p>
+  </div>
+</div>
+
+<div class="container article-wrap">
+  <article class="article-content">
+
+    <p>Před každým vložením textu do AI si položte jednu otázku: <strong>„Pokud tato informace unikne na veřejnost, mám problém?"</strong> Pokud ano — nedávejte ji do consumer chatu. Tady je konkrétní přehled.</p>
+
+    <h2 id="nikdy">Nikdy — žádný kontext to neospravedlní</h2>
+
+    <div class="checklist">
+      <div class="check-row never">
+        <span class="check-icon">🔑</span>
+        <div><div class="check-label">Hesla, API klíče, tokeny</div><div class="check-desc">Ani pro „rychlou kontrolu syntaxe". Nahraďte heslo placeholderem (<code>YOUR_PASSWORD_HERE</code>) a pak teprve vložte.</div></div>
+      </div>
+      <div class="check-row never">
+        <span class="check-icon">💳</span>
+        <div><div class="check-label">Čísla platebních karet, bankovní hesla</div><div class="check-desc">Ani pro „rychlé spočtení". Finanční data anonymizujte vždy — čísla účtů, transakce, přihlašovací údaje do banky.</div></div>
+      </div>
+    </div>
+
+    <h2 id="opatrne">Opatrně — anonymizujte před vložením</h2>
+
+    <div class="checklist">
+      <div class="check-row careful">
+        <span class="check-icon">👤</span>
+        <div><div class="check-label">Osobní údaje zákazníků a klientů (OSV)</div><div class="check-desc">Jméno + e-mail + telefon = osobní údaje podléhající GDPR. Pro firemní zacházení potřebujete Team/Enterprise plán s DPA smlouvou, nebo API. Na consumer plánu vždy nejprve anonymizujte.</div></div>
+      </div>
+      <div class="check-row careful">
+        <span class="check-icon">🏥</span>
+        <div><div class="check-label">Zdravotní záznamy</div><div class="check-desc">Zvlášť chráněná kategorie GDPR. Vaše vlastní lékařská zpráva pro vlastní potřebu je technicky OK na Pro+ plánu — ale cizí záznamy bez souhlasu nikdy.</div></div>
+      </div>
+      <div class="check-row careful">
+        <span class="check-icon">📧</span>
+        <div><div class="check-label">E-maily s daty protistrany</div><div class="check-desc">E-mail typicky obsahuje i data druhé strany — jejich jméno, kontakt, témata. Před vložením e-mailu odeberte jejich osobní údaje.</div></div>
+      </div>
+      <div class="check-row careful">
+        <span class="check-icon">💼</span>
+        <div><div class="check-label">Firemní tajné informace, NDA dokumenty</div><div class="check-desc">Záleží na plánu a policy vašeho zaměstnavatele. Pokud máte pochybnosti, zeptejte se právního oddělení nebo IT security.</div></div>
+      </div>
+    </div>
+
+    <h2 id="ok">Bez obav — to do AI patří</h2>
+
+    <div class="checklist">
+      <div class="check-row ok">
+        <span class="check-icon">📰</span>
+        <div><div class="check-label">Veřejně dostupné materiály</div><div class="check-desc">Tisková zpráva, veřejný blog, manuál, zákon, výroční zpráva — model je pravděpodobně viděl při tréninku. Žádný problém.</div></div>
+      </div>
+      <div class="check-row ok">
+        <span class="check-icon">💻</span>
+        <div><div class="check-label">Kód bez citlivých hodnot</div><div class="check-desc">Logika, struktura a algoritmy jsou OK. Jen se ujistěte, že jste z kódu odstranili API klíče, connection strings a hesla.</div></div>
+      </div>
+      <div class="check-row ok">
+        <span class="check-icon">📝</span>
+        <div><div class="check-label">Vaše vlastní texty a nápady</div><div class="check-desc">Blog posty, marketingové texty, prezentace, brainstorming — to vše je vaše a do AI patří.</div></div>
+      </div>
+    </div>
+
+    <h2 id="plany">Jaký plán Claude používáte? Záleží na tom</h2>
+
+    <p>Ne všechny plány zacházejí s vašimi daty stejně:</p>
+
+    <table class="plan-table">
+      <thead><tr><th>Plán</th><th>Trénink na datech?</th><th>Pro koho</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Free</strong></td><td>Konverzace mohou být použity na trénink (pokud povolíte nebo proběhne safety review)</td><td>Osobní použití, nekritická data</td></tr>
+        <tr><td><strong>Pro</strong></td><td>Standardně nejsou použity na trénink — jen po explicitním povolení</td><td>Freelanceři, osobní podnikání</td></tr>
+        <tr><td><strong>Team / Enterprise</strong></td><td>Zero training by default, DPA dostupná</td><td>Firemní prostředí, klientská data, GDPR shoda</td></tr>
+        <tr><td><strong>API</strong></td><td>Standardně 30 dní retention, nepoužito na trénink; zero-retention add-on dostupný</td><td>Vývojáři, produkční integrace</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-warn">
+      <strong>Pro firemní use case:</strong> Pokud zpracováváte osobní údaje klientů (jejich jméno, e-mail, data z objednávek), potřebujete buď Team/Enterprise plán s DPA, nebo API s vhodnou konfigurací. Consumer plán na to nestačí.
+    </div>
+
+    <h2 id="pravidlo">Jednoduché pravidlo na zapamatování</h2>
+
+    <p>Před každým vložením textu tři sekundy: <strong>„Pokud to vidí svět, mám problém?"</strong></p>
+    <ul>
+      <li>Pokud ano → anonymizujte nebo to nedávejte</li>
+      <li>Pokud nevíte → zeptejte se právníka nebo IT security</li>
+      <li>Pokud ne → vložte a pracujte</li>
+    </ul>
+
+    <p>Většina AI práce je bezpečná. Brainstorming, psaní textů, editace, kód bez hesel, veřejné informace — to vše do AI patří a ušetří vám hodiny práce. Problém nastane jen tehdy, když lidi nejsou obezřetní u těch pár typů dat, které opravdu chránit musíme.</p>
+
+    <div class="article-cta">
+      <div style="flex:1"><h3>Chcete nastavit AI bezpečně pro svůj byznys?</h3><p>Pomohu vám nastavit workflow, který šetří čas a zároveň respektuje GDPR. Konzultace 30 minut zdarma.</p></div>
+      <a href="/kontakt.html" class="btn btn-primary" style="flex-shrink:0">Chci konzultaci →</a>
+    </div>
+    <div class="author-box">
+      <div class="author-avatar">K</div>
+      <div><div class="author-name">Klára Homolková</div><p style="font-size:.8rem;color:var(--muted);margin-bottom:0">Webařka, AI konzultantka a marketingová poradkyně z Třebíče.</p></div>
+    </div>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <h3>Obsah článku</h3>
+      <ul class="toc-list">
+        <li><a href="#nikdy">Nikdy nedávat</a></li>
+        <li><a href="#opatrne">Opatrně / anonymizovat</a></li>
+        <li><a href="#ok">Bez obav</a></li>
+        <li><a href="#plany">Plány a GDPR</a></li>
+        <li><a href="#pravidlo">Jednoduché pravidlo</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-card" style="background:rgba(255,0,127,.05);border-color:var(--border)">
+      <h3>🎁 Bezplatný audit</h3>
+      <p>Pošlete mi váš web — do 48 h dostanete konkrétní zpětnou vazbu zdarma.</p>
+      <a href="/audit-webu-zdarma.html" class="btn btn-primary" style="width:100%;justify-content:center;font-size:.82rem;padding:10px">Chci audit zdarma →</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Související</h3>
+      <ul class="toc-list">
+        <li><a href="/blog/co-je-ai-a-proc-si-vymysli.html">Co je AI a proč si vymýšlí</a></li>
+        <li><a href="/blog/jak-psat-prompty-ktere-funguji.html">Jak psát prompty</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container foot">
+    <div><a href="/" class="logo">Klára<span style="color:var(--accent)">Homolková</span></a><p class="foot-copy">Klára Homolková · IČO: 17960967 · Třebíč · © 2026</p></div>
+    <div class="foot-right"><a href="/#services">Služby</a><a href="/portfolio.html">Portfolio</a><a href="/blog/">Blog</a><a href="/kontakt.html">Kontakt</a></div>
+  </div>
+</footer>
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+const ham=document.getElementById('ham');const mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.setAttribute('aria-expanded',o);mob.setAttribute('aria-hidden',!o)});
+function closeMob(){mob.classList.remove('open');ham.setAttribute('aria-expanded','false');mob.setAttribute('aria-hidden','true')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMob()});
+</script>
+</body>
+</html>

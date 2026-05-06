@@ -1,24 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
     <loc>https://klarahomolkova.cz/</loc>
-    <lastmod>2026-05-04</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- Lead magnet – nejvyšší priorita po homepage -->
   <url>
-    <loc>https://klarahomolkova.cz/#services</loc>
+    <loc>https://klarahomolkova.cz/audit-webu-zdarma.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <!-- Hlavní SEO stránka -->
+  <url>
+    <loc>https://klarahomolkova.cz/tvorba-webu-trebic.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Portfolio -->
+  <url>
+    <loc>https://klarahomolkova.cz/portfolio.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- O mně -->
+  <url>
+    <loc>https://klarahomolkova.cz/o-mne.html</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <!-- Blog index -->
+  <url>
+    <loc>https://klarahomolkova.cz/blog/</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Blog články -->
+  <url>
+    <loc>https://klarahomolkova.cz/blog/kolik-stoji-web-2026.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://klarahomolkova.cz/blog/co-je-ai-a-proc-si-vymysli.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://klarahomolkova.cz/blog/jak-psat-prompty-ktere-funguji.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://klarahomolkova.cz/blog/co-nikdy-nedavat-do-chatgpt.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://klarahomolkova.cz/blog/vibe-coding-web-bez-kodu.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://klarahomolkova.cz/blog/git-pro-necodery.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://klarahomolkova.cz/blog/claude-md-jak-naucit-ai-vaseho-byznysu.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <!-- Kontakt -->
+  <url>
+    <loc>https://klarahomolkova.cz/kontakt.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <!-- Sekce homepage -->
+  <url>
+    <loc>https://klarahomolkova.cz/#services</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://klarahomolkova.cz/#pricing</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://klarahomolkova.cz/#contact</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.65</priority>
+  </url>
+  <!-- Právní stránky -->
+  <url>
+    <loc>https://klarahomolkova.cz/podm%C3%ADnky-u%C5%BE%C3%ADv%C3%A1n%C3%AD.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
