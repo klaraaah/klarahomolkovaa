@@ -4,15 +4,12 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="robots" content="index,follow"/>
-<meta name="theme-color" content="#131313"/>
+<meta name="theme-color" content="#0A0A0A"/>
 <title>Blog | Klára Homolková – weby, AI a marketing v praxi</title>
 <meta name="description" content="Blog Kláry Homolkové: praktické články o tvorbě webů, AI automatizaci a marketingu pro podnikatele na Vysočině. Bez teorie, jen praxe."/>
 <meta name="author" content="Klára Homolková"/>
 <link rel="canonical" href="https://klarahomolkova.cz/blog/"/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23131313'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23FF007F'%3EK%3C/text%3E%3C/svg%3E"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23FF007F'%3EK%3C/text%3E%3C/svg%3E"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#131313;--surface:#1C1B1B;--surface-glass:rgba(28,27,27,.6);--border:rgba(255,0,127,.18);--border-subtle:rgba(255,255,255,.07);--accent:#FF007F;--accent2:#FFB1C4;--text:#f0f0f0;--muted:#888;--radius:6px;--font:'Space Grotesk',sans-serif;--tr:.22s cubic-bezier(.4,0,.2,1);--glow:0 0 14px rgba(255,0,127,.22);--glow-sm:0 0 8px rgba(255,0,127,.14)}
@@ -85,12 +82,13 @@ footer{padding:36px 0;border-top:1px solid var(--border-subtle);position:relativ
 @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}.blog-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.blog-grid{grid-template-columns:1fr}.newsletter-box{padding:24px 20px}}
 </style>
+<link rel="stylesheet" href="/assets/site.css"/>
 </head>
 <body>
 <a href="#main" class="skip-link">Přeskočit na obsah</a>
-<nav id="nav" role="navigation">
+<nav id="nav" role="navigation" aria-label="Hlavní navigace">
   <div class="container nav-inner">
-    <a href="/" class="logo">Klára<span>Homolková</span></a>
+    <a href="/" class="logo" aria-label="Klára Homolková – úvodní stránka">Klára<span>Homolková</span></a>
     <ul class="nav-links">
       <li><a href="/#services">Služby</a></li>
       <li><a href="/portfolio.html">Portfolio</a></li>
@@ -98,17 +96,17 @@ footer{padding:36px 0;border-top:1px solid var(--border-subtle);position:relativ
       <li><a href="/blog/" class="active">Blog</a></li>
       <li><a href="/kontakt.html">Kontakt</a></li>
     </ul>
-    <a href="/audit-webu-zdarma.html" class="btn btn-primary" style="padding:10px 18px;font-size:.8rem">🎁 Audit webu zdarma</a>
-    <button class="hamburger" id="ham" aria-label="Otevřít menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a href="/audit-webu-zdarma.html" class="btn btn-primary nav-cta">Audit webu zdarma</a>
+    <button class="hamburger" id="ham" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mob"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="mob-menu" id="mob" role="dialog" aria-hidden="true">
+<div class="mob-menu" id="mob" role="dialog" aria-label="Mobilní menu" aria-hidden="true">
   <a href="/#services" onclick="closeMob()">Služby</a>
   <a href="/portfolio.html" onclick="closeMob()">Portfolio</a>
   <a href="/o-mne.html" onclick="closeMob()">O mně</a>
   <a href="/blog/" onclick="closeMob()">Blog</a>
   <a href="/kontakt.html" onclick="closeMob()">Kontakt</a>
-  <a href="/audit-webu-zdarma.html" class="btn btn-primary" style="text-align:center;margin-top:16px" onclick="closeMob()">🎁 Audit webu zdarma</a>
+  <a href="/audit-webu-zdarma.html" class="btn btn-primary" onclick="closeMob()">Audit webu zdarma</a>
 </div>
 
 <div class="page-hero" id="main">
@@ -256,14 +254,43 @@ footer{padding:36px 0;border-top:1px solid var(--border-subtle);position:relativ
   </div>
 </section>
 
-<footer>
-  <div class="container foot">
-    <div>
-      <a href="/" class="logo">Klára<span style="color:var(--accent)">Homolková</span></a>
-      <p class="foot-copy">Klára Homolková · IČO: 17960967 · Třebíč · © 2026</p>
+<footer class="site-foot">
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <p class="label">Máte projekt nebo nápad?</p>
+        <a class="foot-big" href="/kontakt.html">Pojďme<br/>na to <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>Web</h4>
+          <a href="/#services">Služby</a>
+          <a href="/#pricing">Ceník</a>
+          <a href="/portfolio.html">Portfolio</a>
+          <a href="/o-mne.html">O mně</a>
+          <a href="/blog/">Blog</a>
+          <a href="/audit-webu-zdarma.html">Audit webu zdarma</a>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <a href="mailto:klarahomolkova@post.cz">klarahomolkova@post.cz</a>
+          <a href="tel:+420725771322">725 771 322</a>
+          <span>Třebíč, Vysočina</span>
+          <span>IČO: 17960967</span>
+        </div>
+        <div>
+          <h4>Právní</h4>
+          <a href="/#ochrana-osobnich-udaju" data-modal="gdprModal">Zásady ochrany osobních údajů</a>
+          <a href="/#cookies" data-modal="cookieModal">Zásady cookies</a>
+          <a href="/podmínky-užívání.html">Podmínky užívání</a>
+        </div>
+      </div>
     </div>
-    <div class="foot-right">
-      <a href="/#services">Služby</a><a href="/portfolio.html">Portfolio</a><a href="/o-mne.html">O mně</a><a href="/blog/">Blog</a><a href="/kontakt.html">Kontakt</a>
+    <div class="foot-word" aria-hidden="true">Klára Homolková<b>.</b></div>
+    <div class="foot-bottom">
+      <span>© 2026 Klára Homolková</span>
+      <span>Tvorba webů · AI nasazení · Marketing · Vysočina &amp; celá ČR</span>
+      <span>Vyrobeno s láskou a kávou</span>
     </div>
   </div>
 </footer>

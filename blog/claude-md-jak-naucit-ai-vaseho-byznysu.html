@@ -8,9 +8,7 @@
 <link rel="canonical" href="https://klarahomolkova.cz/blog/claude-md-jak-naucit-ai-vaseho-byznysu.html"/>
 <meta property="og:title" content="CLAUDE.md: jak naučit AI vašemu byznysu jednou provždy"/>
 <meta property="og:type" content="article"/><meta property="og:locale" content="cs_CZ"/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23131313'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23FF007F'%3EK%3C/text%3E%3C/svg%3E"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23FF007F'%3EK%3C/text%3E%3C/svg%3E"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#131313;--surface:#1C1B1B;--surface-glass:rgba(28,27,27,.6);--border:rgba(255,0,127,.18);--border-subtle:rgba(255,255,255,.07);--accent:#FF007F;--accent2:#FFB1C4;--text:#f0f0f0;--muted:#888;--radius:6px;--font:'Space Grotesk',sans-serif;--tr:.22s cubic-bezier(.4,0,.2,1);--glow:0 0 14px rgba(255,0,127,.22);--glow-sm:0 0 8px rgba(255,0,127,.14)}
@@ -49,11 +47,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:va
 footer{padding:36px 0;border-top:1px solid var(--border-subtle);position:relative;z-index:1}.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}.foot-copy{font-size:.78rem;color:var(--muted);margin-top:5px;line-height:1.7}.foot-right{display:flex;gap:22px;align-items:center;flex-wrap:wrap}.foot-right a{font-size:.78rem;color:var(--muted);text-decoration:none;transition:var(--tr);text-transform:uppercase;letter-spacing:.06em}.foot-right a:hover{color:var(--accent2)}
 @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}.article-wrap{grid-template-columns:1fr}.sidebar{position:static}.example-grid{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="/assets/site.css"/>
 </head>
 <body>
 <a href="#main" class="skip-link">Přeskočit na obsah</a>
-<nav id="nav"><div class="container nav-inner"><a href="/" class="logo">Klára<span>Homolková</span></a><ul class="nav-links"><li><a href="/#services">Služby</a></li><li><a href="/portfolio.html">Portfolio</a></li><li><a href="/o-mne.html">O mně</a></li><li><a href="/blog/" class="active">Blog</a></li><li><a href="/kontakt.html">Kontakt</a></li></ul><a href="/audit-webu-zdarma.html" class="btn btn-primary" style="padding:10px 18px;font-size:.8rem">🎁 Audit webu zdarma</a><button class="hamburger" id="ham" aria-label="Otevřít menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
-<div class="mob-menu" id="mob" role="dialog" aria-hidden="true"><a href="/#services" onclick="closeMob()">Služby</a><a href="/portfolio.html" onclick="closeMob()">Portfolio</a><a href="/o-mne.html" onclick="closeMob()">O mně</a><a href="/blog/" onclick="closeMob()">Blog</a><a href="/kontakt.html" onclick="closeMob()">Kontakt</a><a href="/audit-webu-zdarma.html" class="btn btn-primary" style="text-align:center;margin-top:16px" onclick="closeMob()">🎁 Audit webu zdarma</a></div>
+<nav id="nav" role="navigation" aria-label="Hlavní navigace">
+  <div class="container nav-inner">
+    <a href="/" class="logo" aria-label="Klára Homolková – úvodní stránka">Klára<span>Homolková</span></a>
+    <ul class="nav-links">
+      <li><a href="/#services">Služby</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/o-mne.html">O mně</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      <li><a href="/kontakt.html">Kontakt</a></li>
+    </ul>
+    <a href="/audit-webu-zdarma.html" class="btn btn-primary nav-cta">Audit webu zdarma</a>
+    <button class="hamburger" id="ham" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mob"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-menu" id="mob" role="dialog" aria-label="Mobilní menu" aria-hidden="true">
+  <a href="/#services" onclick="closeMob()">Služby</a>
+  <a href="/portfolio.html" onclick="closeMob()">Portfolio</a>
+  <a href="/o-mne.html" onclick="closeMob()">O mně</a>
+  <a href="/blog/" onclick="closeMob()">Blog</a>
+  <a href="/kontakt.html" onclick="closeMob()">Kontakt</a>
+  <a href="/audit-webu-zdarma.html" class="btn btn-primary" onclick="closeMob()">Audit webu zdarma</a>
+</div>
 
 <div class="article-hero" id="main">
   <div class="container">
@@ -164,12 +183,51 @@ Vytvoř strukturovaný CLAUDE.md v markdown formátu.</div>
 
   <aside class="sidebar">
     <div class="sidebar-card"><h3>Obsah článku</h3><ul class="toc-list"><li><a href="#co-je">Co je CLAUDE.md</a></li><li><a href="#dva-typy">Dvě úrovně souboru</a></li><li><a href="#co-do-nej">Co tam patří</a></li><li><a href="#priklady">Příklady pro situace</a></li><li><a href="#jak-napsat">Jak napsat za 10 min</a></li><li><a href="#chyby">5 chyb</a></li></ul></div>
-    <div class="sidebar-card" style="background:rgba(255,0,127,.05);border-color:var(--border)"><h3>🎁 Bezplatný audit</h3><p>Pošlete mi váš web — do 48 h dostanete konkrétní zpětnou vazbu zdarma.</p><a href="/audit-webu-zdarma.html" class="btn btn-primary" style="width:100%;justify-content:center;font-size:.82rem;padding:10px">Chci audit zdarma →</a></div>
+    <div class="sidebar-card" style="background:rgba(255,0,127,.05);border-color:var(--border)"><h3>Bezplatný audit</h3><p>Pošlete mi váš web — do 48 h dostanete konkrétní zpětnou vazbu zdarma.</p><a href="/audit-webu-zdarma.html" class="btn btn-primary" style="width:100%;justify-content:center;font-size:.82rem;padding:10px">Chci audit zdarma →</a></div>
     <div class="sidebar-card"><h3>📚 Související</h3><ul class="toc-list"><li><a href="/blog/jak-psat-prompty-ktere-funguji.html">Jak psát prompty</a></li><li><a href="/blog/vibe-coding-web-bez-kodu.html">Vibe coding: web bez kódu</a></li><li><a href="/blog/co-je-ai-a-proc-si-vymysli.html">Co je AI a proč si vymýšlí</a></li></ul></div>
   </aside>
 </div>
 
-<footer><div class="container foot"><div><a href="/" class="logo">Klára<span style="color:var(--accent)">Homolková</span></a><p class="foot-copy">Klára Homolková · IČO: 17960967 · Třebíč · © 2026</p></div><div class="foot-right"><a href="/#services">Služby</a><a href="/portfolio.html">Portfolio</a><a href="/blog/">Blog</a><a href="/kontakt.html">Kontakt</a></div></div></footer>
+<footer class="site-foot">
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <p class="label">Máte projekt nebo nápad?</p>
+        <a class="foot-big" href="/kontakt.html">Pojďme<br/>na to <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>Web</h4>
+          <a href="/#services">Služby</a>
+          <a href="/#pricing">Ceník</a>
+          <a href="/portfolio.html">Portfolio</a>
+          <a href="/o-mne.html">O mně</a>
+          <a href="/blog/">Blog</a>
+          <a href="/audit-webu-zdarma.html">Audit webu zdarma</a>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <a href="mailto:klarahomolkova@post.cz">klarahomolkova@post.cz</a>
+          <a href="tel:+420725771322">725 771 322</a>
+          <span>Třebíč, Vysočina</span>
+          <span>IČO: 17960967</span>
+        </div>
+        <div>
+          <h4>Právní</h4>
+          <a href="/#ochrana-osobnich-udaju" data-modal="gdprModal">Zásady ochrany osobních údajů</a>
+          <a href="/#cookies" data-modal="cookieModal">Zásady cookies</a>
+          <a href="/podmínky-užívání.html">Podmínky užívání</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-word" aria-hidden="true">Klára Homolková<b>.</b></div>
+    <div class="foot-bottom">
+      <span>© 2026 Klára Homolková</span>
+      <span>Tvorba webů · AI nasazení · Marketing · Vysočina &amp; celá ČR</span>
+      <span>Vyrobeno s láskou a kávou</span>
+    </div>
+  </div>
+</footer>
 <script>
 const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
 const ham=document.getElementById('ham');const mob=document.getElementById('mob');

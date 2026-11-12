@@ -19,7 +19,8 @@ Tento soubor poskytuje AI (Claude) kontext o projektu, aby mohla správně cháp
 ## Technologie
 
 - **Čistý HTML/CSS/JS** — žádný framework, žádný build krok
-- **Font:** Space Grotesk (Google Fonts)
+- **Fonty:** Archivo (variabilní, nadpisy i text) + JetBrains Mono (štítky) — hostované lokálně v `/assets/fonts/`, žádné Google Fonts
+- **Sdílený design:** `/assets/site.css` — načítá se na všech stránkách až ZA případným inline `<style>` stránky
 - **Formulář:** Google Apps Script endpoint (no-cors POST, JSON payload)
 - **Hosting/deploy:** GitHub Pages nebo statický hosting, branch `master`
 - **Repozitář:** https://github.com/klaraaah/klarahomolkova
@@ -44,24 +45,27 @@ Tento soubor poskytuje AI (Claude) kontext o projektu, aby mohla správně cháp
 
 ---
 
-## Design systém
+## Design systém (redesign 11/2026 — „redakční brutalismus")
 
-Proměnné CSS (definované v `:root` v každém HTML souboru):
+Jediný zdroj vzhledu je **`/assets/site.css`**. Hlavní stránka nemá žádné inline CSS. Podstránky mají v inline `<style>` už jen svůj layout (gridy, odsazení); barvy, písmo, tlačítka, navigaci, patičku a karty jim přebíjí `site.css`.
 
-| Proměnná          | Hodnota                        | Použití                    |
-|-------------------|--------------------------------|----------------------------|
-| `--bg`            | `#131313`                      | Pozadí stránky             |
-| `--surface`       | `#1C1B1B`                      | Povrch karet               |
-| `--surface-glass` | `rgba(28,27,27,.6)`            | Glassmorphism karty        |
-| `--accent`        | `#FF007F`                      | Primární akcent (růžová)   |
-| `--accent2`       | `#FFB1C4`                      | Světlejší akcent           |
-| `--border`        | `rgba(255,0,127,.18)`          | Aktivní ohraničení         |
-| `--border-subtle` | `rgba(255,255,255,.07)`        | Jemné ohraničení           |
-| `--text`          | `#f0f0f0`                      | Primární text              |
-| `--muted`         | `#888`                         | Sekundární / tlumený text  |
-| `--radius`        | `6px`                          | Zaoblení rohů              |
-| `--glow`          | `0 0 24px rgba(255,0,127,.35)` | Glow efekt (hover)         |
-| `--glow-sm`       | `0 0 12px rgba(255,0,127,.2)`  | Jemný glow efekt           |
+Zásady: žádné glow, žádný glassmorphism, žádné zaoblené rohy (`--radius:0`). Tvrdé linky 1–2 px, velké verzálkové nadpisy, hover = posun + tvrdý stín. Jedna akcentní barva.
+
+| Proměnná          | Hodnota                   | Použití                               |
+|-------------------|---------------------------|---------------------------------------|
+| `--bg`            | `#0A0A0A`                 | Inkoust — výchozí pozadí              |
+| `--text`          | `#F4F1EA`                 | Papír — text na tmavé                 |
+| `--muted`         | `#A8A49C`                 | Sekundární text                       |
+| `--accent`        | `#FF007F`                 | Růžová (text na ní je vždy černý)     |
+| `--line`          | `rgba(244,241,234,.18)`   | Linky a ohraničení                    |
+| `--font`          | Archivo                   | Vše kromě štítků                      |
+| `--mono`          | JetBrains Mono            | Štítky, navigace, meta údaje          |
+
+Tématické třídy na sekci přepnou proměnné: `.t-paper` (světlá), `.t-pink` (růžová), `.t-ink` (tmavá uvnitř jiné). Růžové jsou automaticky i `.cta-box`, `.newsletter-box`, `.article-cta`.
+
+**Úvodní animace „průlet do obrazovky"** (`index.html`, sekce `#hero.dive` + `/assets/dive.js`): sekce je vysoká 520vh s přilepenou scénou; scroll (0–1) zvětší počítač tak, že jeho obrazovka vyplní okno, a uvnitř proběhnou tři scény (web → AI → automatizace). Texty scén jsou přímo v HTML, časování v `dive.js` (funkce `render`). Při `prefers-reduced-motion` se zobrazí jen statický úvod.
+
+Navigace a patička jsou na všech stránkách stejný HTML blok (`nav#nav` + `.mob-menu`, `footer.site-foot`) — při změně upravit ve všech souborech. Právní odkazy v patičce vedou na `/#ochrana-osobnich-udaju` a `/#cookies` (index podle hashe otevře modal).
 
 ---
 
@@ -73,6 +77,7 @@ Proměnné CSS (definované v `:root` v každém HTML souboru):
 - Všechny stránky mají `lang="cs"` a správné `<meta>` tagy (description, canonical, OG).
 - Obrázky: OG image je na `https://klarahomolkova.cz/og-image.jpg` (není v repozitáři, hostováno externě).
 - Favicon je inline SVG s písmenem „K" a akcent barvou `#FF007F`.
+- Emoji v ikonkách se přes CSS převádějí do odstínů šedi; do tlačítek emoji nedávat.
 
 ---
 
